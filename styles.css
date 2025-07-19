@@ -497,7 +497,7 @@ header {
 
 .contact-form {
     background-color: white;
-    padding: 40px;
+    padding: 40px 40px 80px; /* top: 40px, sides: 40px, bottom: 80px */
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -511,6 +511,11 @@ header {
 .contact-form h2:after {
     margin-left: 0;
 }
+
+.qr-code {
+    margin-bottom: 40px;
+}
+
 
 .form-group {
     margin-bottom: 20px;
