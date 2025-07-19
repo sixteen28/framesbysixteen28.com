@@ -815,3 +815,16 @@ footer {
 .carousel-prev:hover, .carousel-next:hover {
     background: rgba(0, 0, 0, 0.7);
 }
+.qr-code {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 20px; /* Some side spacing */
+    box-sizing: border-box;
+}
+@media screen and (max-width: 480px) {
+    .qr-code {
+        padding: 0 10px;
+    }
+}
