@@ -707,16 +707,82 @@
         }
 
         /* Responsive Styles */
-        @media screen and (max-width: 992px) {
+        /* Laptop L - 1440px */
+        @media screen and (max-width: 1440px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 15px;
+            }
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.5rem; }
+            .hero-content { padding: 30px; }
+            .hero-content p { font-size: 1.2rem; max-width: 450px; }
+            .cta-button { padding: 12px 30px; }
+            .logo { height: 90px; }
+            .main-nav li { margin-left: 30px; }
+            .main-nav a { font-size: 0.9rem; }
+            .collection-grid { gap: 25px; }
+            .collection-card h3 { font-size: 1.1rem; }
+            .collection-image { height: 160px; }
+            .new-arrivals-container { max-width: 1000px; }
+            .new-arrival-item img { height: 180px; }
+            .new-arrival-item h3 { font-size: 1.2rem; }
+            .product-card { flex: 0 0 280px; }
+            .product-image { height: 200px; }
+            .product-card h3 { font-size: 1.2rem; }
+            .contact-info h2 { font-size: 2.5rem; }
+            .contact-content { max-width: 700px; }
+            .signup-form { max-width: 400px; }
+            .footer-logo .logo-small { height: 70px; }
+        }
+
+        /* Laptop - 1024px */
+        @media screen and (max-width: 1024px) {
+            .container {
+                max-width: 900px;
+                padding: 0 15px;
+            }
             h1 { font-size: 2.8rem; }
             h2 { font-size: 2.2rem; }
             .hero { flex-direction: column; min-height: auto; }
-            .hero-image { min-height: 50vh; }
+            .hero-image { min-height: 45vh; }
             .hero-content { padding: 20px; }
+            .hero-content p { font-size: 1.1rem; max-width: 400px; }
+            .cta-button { padding: 10px 25px; font-size: 0.9rem; }
+            .logo { height: 80px; }
+            .main-nav li { margin-left: 25px; }
+            .main-nav a { font-size: 0.85rem; }
+            .collection-grid { gap: 20px; }
+            .collection-card h3 { font-size: 1rem; }
+            .collection-image { height: 140px; }
+            .new-arrivals-container { max-width: 800px; }
             .new-arrival-item { flex: 0 0 50%; }
+            .new-arrival-item img { height: 160px; }
+            .new-arrival-item h3 { font-size: 1.1rem; }
+            .product-card { flex: 0 0 260px; }
+            .product-image { height: 180px; }
+            .product-card h3 { font-size: 1.1rem; }
+            .contact-info h2 { font-size: 2.2rem; }
+            .contact-content { max-width: 600px; }
+            .signup-form { max-width: 350px; }
+            .signup-form input { padding: 0.8rem; font-size: 0.9rem; }
+            .signup-form button { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .footer-logo .logo-small { height: 60px; }
         }
 
+        /* Tablet - 768px */
         @media screen and (max-width: 768px) {
+            .container {
+                max-width: 700px;
+                padding: 0 10px;
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-content { padding: 15px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1rem; max-width: 350px; }
+            .cta-button { padding: 8px 20px; font-size: 0.85rem; }
+            .logo { height: 70px; }
             .main-nav { display: none; }
             .mobile-menu-toggle { display: block; }
             .main-nav.active {
@@ -727,47 +793,265 @@
                 left: 0;
                 width: 100%;
                 background-color: white;
-                padding: 20px;
+                padding: 15px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
-            .collection-grid { grid-template-columns: repeat(2, 1fr); }
-            .product-container { gap: 15px; }
+            .main-nav li { margin: 10px 0; }
+            .main-nav a { font-size: 0.9rem; }
+            .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .collection-card h3 { font-size: 0.95rem; }
+            .collection-image { height: 120px; }
+            .new-arrivals-container { max-width: 600px; }
             .new-arrival-item { flex: 0 0 100%; }
-            .signup-form { flex-direction: column; max-width: 350px; }
-            .contact-content iframe { width: 100%; height: 200px; }
-        }
-
-        @media screen and (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .hero-content h1 { font-size: 2rem; }
-            .cta-button { padding: 12px 25px; }
-            .collection-grid { grid-template-columns: 1fr; }
-            .product-container { gap: 10px; }
-            .product-card { flex: 0 0 250px; }
-            .product-actions { flex-direction: column; }
-            #newsletter-form { flex-direction: column; }
-            #newsletter-form input,
-            #newsletter-form button {
-                width: 100%;
-                border-radius: 5px;
-                margin-bottom: 10px;
-            }
+            .new-arrival-item img { height: 140px; }
+            .new-arrival-item h3 { font-size: 1rem; }
+            .product-container { gap: 15px; }
+            .product-card { flex: 0 0 240px; }
+            .product-image { height: 160px; }
+            .product-card h3 { font-size: 1rem; }
             .contact-info h2 { font-size: 2rem; }
-            .contact-content iframe { height: 150px; }
+            .contact-content { max-width: 500px; }
+            .contact-content iframe { width: 100%; height: 200px; }
+            .signup-form { flex-direction: column; max-width: 300px; }
+            .signup-form input { padding: 0.7rem; font-size: 0.85rem; }
+            .signup-form button { padding: 0.7rem; font-size: 0.85rem; }
+            .footer-content { gap: 20px; }
+            .footer-logo .logo-small { height: 50px; }
+            .footer-links h3, .footer-newsletter h3 { font-size: 1.2rem; }
         }
 
-      .hero-image{
+        /* Mobile L - 425px */
+        @media screen and (max-width: 425px) {
+            .container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            h2:after { width: 80px; height: 4px; }
+            .hero-content { padding: 10px; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-content p { font-size: 0.9rem; max-width: 300px; }
+            .cta-button { padding: 8px 18px; font-size: 0.8rem; }
+            .logo { height: 60px; }
+            .main-nav.active { padding: 10px; }
+            .main-nav a { font-size: 0.85rem; }
+            .collection-grid { grid-template-columns: 1fr; gap: 10px; }
+            .collection-card h3 { font-size: 0.9rem; }
+            .collection-image { height: 100px; }
+            .new-arrivals { padding: 40px 0; }
+            .new-arrivals-container { max-width: 100%; }
+            .new-arrival-item img { height: 120px; }
+            .new-arrival-item h3 { font-size: 0.95rem; }
+            .new-arrival-prev, .new-arrival-next { padding: 0.8rem; font-size: 1.2rem; }
+            .product-container { gap: 10px; }
+            .product-card { flex: 0 0 220px; }
+            .product-image { height: 140px; }
+            .product-card h3 { font-size: 0.95rem; }
+            .product-actions { flex-direction: column; }
+            .try-on-btn, .add-to-cart-btn { padding: 0.6rem; font-size: 0.85rem; }
+            .contact-section { padding: 40px 0; }
+            .contact-info h2 { font-size: 1.8rem; }
+            .contact-content { max-width: 100%; }
+            .contact-content iframe { height: 150px; }
+            .contact-info { padding: 1.5rem; }
+            .contact-info address { font-size: 1rem; }
+            .hours h3 { font-size: 1.3rem; }
+            .hours p { font-size: 1rem; }
+            .social-links a { font-size: 1.3rem; }
+            .signup-form { max-width: 100%; }
+            .signup-form input { padding: 0.6rem; font-size: 0.8rem; }
+            .signup-form button { padding: 0.6rem; font-size: 0.8rem; }
+            .footer-content { gap: 15px; }
+            .footer-logo .logo-small { height: 45px; }
+            .footer-links h3, .footer-newsletter h3 { font-size: 1.1rem; }
+            #newsletter-form input { padding: 10px; font-size: 0.85rem; }
+            #newsletter-form button { padding: 10px 15px; font-size: 0.85rem; }
+        }
+
+        /* Mobile M - 375px */
+        @media screen and (max-width: 375px) {
+            .container {
+                max-width: 100%;
+                padding: 0 8px;
+            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            h2:after { width: 70px; height: 3px; }
+            .hero-content h1 { font-size: 1.6rem; }
+            .hero-content p { font-size: 0.85rem; max-width: 280px; }
+            .cta-button { padding: 7px 16px; font-size: 0.75rem; }
+            .logo { height: 55px; }
+            .main-nav.active { padding: 8px; }
+            .main-nav a { font-size: 0.8rem; }
+            .collection-grid { gap: 8px; }
+            .collection-card h3 { font-size: 0.85rem; }
+            .collection-image { height: 90px; }
+            .new-arrival-item img { height: 110px; }
+            .new-arrival-item h3 { font-size: 0.9rem; }
+            .new-arrival-prev, .new-arrival-next { padding: 0.7rem; font-size: 1.1rem; }
+            .product-card { flex: 0 0 200px; }
+            .product-image { height: 130px; }
+            .product-card h3 { font-size: 0.9rem; }
+            .try-on-btn, .add-to-cart-btn { padding: 0.5rem; font-size: 0.8rem; }
+            .contact-info h2 { font-size: 1.6rem; }
+            .contact-info { padding: 1.2rem; }
+            .contact-content iframe { height: 120px; }
+            .contact-info address { font-size: 0.95rem; }
+            .hours h3 { font-size: 1.2rem; }
+            .hours p { font-size: 0.95rem; }
+            .social-links a { font-size: 1.2rem; }
+            .signup-form input { padding: 0.5rem; font-size: 0.75rem; }
+            .signup-form button { padding: 0.5rem; font-size: 0.75rem; }
+            .footer-logo .logo-small { height: 40px; }
+            .footer-links h3, .footer-newsletter h3 { font-size: 1rem; }
+            #newsletter-form input { padding: 8px; font-size: 0.8rem; }
+            #newsletter-form button { padding: 8px 12px; font-size: 0.8rem; }
+        }
+
+        /* Mobile S - 320px */
+        @media screen and (max-width: 320px) {
+            .container {
+                max-width: 100%;
+                padding: 0 5px;
+            }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.4rem; }
+            h2:after { width: 60px; height: 3px; }
+            .hero-content h1 { font-size: 1.4rem; }
+            .hero-content p { font-size: 0.8rem; max-width: 250px; }
+            .cta-button { padding: 6px 14px; font-size: 0.7rem; }
+            .logo { height: 50px; }
+            .main-nav.active { padding: 5px; }
+            .main-nav a { font-size: 0.75rem; }
+            .collection-grid { gap: 5px; }
+            .collection-card h3 { font-size: 0.8rem; }
+            .collection-image { height: 80px; }
+            .new-arrivals { padding: 30px 0; }
+            .new-arrival-item img { height: 100px; }
+            .new-arrival-item h3 { font-size: 0.85rem; }
+            .new-arrival-prev, .new-arrival-next { padding: 0.6rem; font-size: 1rem; }
+            .product-card { flex: 0 0 180px; }
+            .product-image { height: 120px; }
+            .product-card h3 { font-size: 0.85rem; }
+            .try-on-btn, .add-to-cart-btn { padding: 0.4rem; font-size: 0.75rem; }
+            .contact-section { padding: 30px 0; }
+            .contact-info h2 { font-size: 1.4rem; }
+            .contact-info { padding: 1rem; }
+            .contact-content iframe { height: 100px; }
+            .contact-info address { font-size: 0.9rem; }
+            .hours h3 { font-size: 1.1rem; }
+            .hours p { font-size: 0.9rem; }
+            .social-links a { font-size: 1.1rem; }
+            .signup-form input { padding: 0.4rem; font-size: 0.7rem; }
+            .signup-form button { padding: 0.4rem; font-size: 0.7rem; }
+            .footer-logo .logo-small { height: 35px; }
+            .footer-links h3, .footer-newsletter h3 { font-size: 0.9rem; }
+            #newsletter-form input { padding: 6px; font-size: 0.75rem; }
+            #newsletter-form button { padding: 6px 10px; font-size: 0.75rem; }
+            .copyright { font-size: 0.8rem; }
+        }
+          .hero-image{
             margin-top: 400px;
+            margin-bottom: 300px;
             
         }
 
         .hero-image img{
             border-radius: 20px;
-            height: 100%;
-            width: 80%;
-            object-fit: fill;
+            height: 80%;
+            width: 70%;
+            object-fit: cover;
         }
+/* Responsive Styles for hero-image */
+
+/* Laptop L - 1440px */
+@media screen and (max-width: 1440px) {
+    .hero-image {
+        margin-top: 300px;
+        margin-bottom: 200px;
+        
+    }
+    .hero-image img {
+        width: 75%;
+        height: 75%;
+        border-radius: 18px;
+    }
+}
+
+/* Laptop - 1024px */
+@media screen and (max-width: 1024px) {
+    .hero-image {
+        margin-top: 200px;
+        margin-bottom: 150px;
+        min-height: 40vh;
+    }
+    .hero-image img {
+        width: 80%;
+        height: 70%;
+        border-radius: 16px;
+    }
+}
+
+/* Tablet - 768px */
+@media screen and (max-width: 768px) {
+    .hero-image {
+        margin-top: 150px;
+        margin-bottom: 100px;
+         margin-left: 20px;
+        min-height: 35vh;
+    }
+    .hero-image img {
+        width: 85%;
+        height: 65%;
+        border-radius: 14px;
+    }
+}
+
+/* Mobile L - 425px */
+@media screen and (max-width: 425px) {
+    .hero-image {
+        margin-top: 100px;
+        margin-bottom: 80px;
+        min-height: 30vh;
+    }
+    .hero-image img {
+        width: 90%;
+        height: 60%;
+        border-radius: 12px;
+    }
+}
+
+/* Mobile M - 375px */
+@media screen and (max-width: 375px) {
+    .hero-image {
+        margin-top: 80px;
+        margin-bottom: 60px;
+         margin-left: 20px;
+        min-height: 25vh;
+
+    }
+    .hero-image img {
+        width: 92%;
+        height: 55%;
+        border-radius: 10px;
+    }
+}
+
+/* Mobile S - 320px */
+@media screen and (max-width: 320px) {
+    .hero-image {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        min-height: 20vh;
+        margin-left: 20px;
+    }
+    .hero-image img {
+        width: 95%;
+        height: 50%;
+        border-radius: 8px;
+    }
+}
     </style>
 </head>
 <body>
@@ -797,7 +1081,7 @@
             <p>Explore premium eyewear that blends modern design with timeless elegance</p>
             <a href="#new-arrivals" class="cta-button">Discover New Arrivals</a>
         </div>
-        <div class="hero-image"><img src="pglass.jpg" ></div>
+        <div class="hero-image"><img src="customer.jpg" ></div>
     </section>
 
     <section class="collections" id="collections">
@@ -805,7 +1089,7 @@
             <h2>Shop by Category</h2>
             <div class="collection-grid">
                 <div class="collection-card" data-category="mens">
-                    <div class="collection-image"><img src="glasses28.jpg" alt=""></div>
+                    <div class="collection-image"><img src="glasses1671.jpg" alt=""></div>
                     <h3>Men's Glasses</h3>
                 </div>
                 <div class="collection-card" data-category="womens">
@@ -815,7 +1099,7 @@
                     <h3>Women's Glasses</h3>
                 </div>
                 <div class="collection-card" data-category="sun">
-                    <div class="collection-image"><img src="glasses1671.jpg" alt=""></div>
+                    <div class="collection-image"><img src="sunglasses.jpg" alt=""></div>
                     <h3>Sun Glasses</h3>
                 </div>
                 <div class="collection-card" data-category="blue-light">
