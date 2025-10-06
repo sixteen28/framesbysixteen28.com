@@ -139,7 +139,7 @@
 
         .shop-section {
             padding: 100px 0;
-            background-color: var(--light-gray);
+            background-color: var(--light-gly);
             margin-top: 80px;
         }
 
@@ -161,9 +161,9 @@
             justify-content: space-between;
             padding: 15px;
             box-sizing: border-box;
-            background-color: var(--light-color); /* #F9F9F9 for consistency */
+            background-color: var(--light-color);
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .product-card-inner {
@@ -203,10 +203,10 @@
         .product-card img {
             width: 100%;
             height: 70%;
-            object-fit: contain; /* Show full image without cropping */
-            background-color: #fff; /* Fill empty space */
+            object-fit: contain;
+            background-color: #fff;
             display: block;
-            margin: 0 auto; /* Center horizontally */
+            margin: 0 auto;
         }
 
         .product-card h3 {
@@ -221,7 +221,7 @@
         }
 
         .product-card button {
-            background-color: var(--primary-color); /* Use theme color */
+            background-color: var(--primary-color);
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -233,6 +233,27 @@
 
         .product-card button:hover {
             background-color: var(--secondary-color);
+        }
+
+        .currency-toggle {
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .currency-toggle select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid var(--gray-color);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .currency-toggle select:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
 
         /* Hamburger Menu Styles */
@@ -268,6 +289,7 @@
             .product-card p { font-size: 0.95rem; margin: 0 8px 8px; }
             .product-card button { padding: 9px 18px; font-size: 0.95rem; margin: 8px; }
             .mobile-menu-toggle { font-size: 1.7rem; }
+            .currency-toggle { margin-left: 15px; }
         }
 
         @media screen and (max-width: 1024px) {
@@ -289,6 +311,7 @@
             .product-card p { font-size: 0.9rem; margin: 0 7px 7px; }
             .product-card button { padding: 8px 16px; font-size: 0.9rem; margin: 7px; }
             .mobile-menu-toggle { font-size: 1.6rem; }
+            .currency-toggle { margin-left: 12px; }
         }
 
         @media screen and (max-width: 768px) {
@@ -322,6 +345,7 @@
             .product-card p { font-size: 0.85rem; margin: 0 6px 6px; }
             .product-card button { padding: 7px 14px; font-size: 0.85rem; margin: 6px; }
             .mobile-menu-toggle { display: block; font-size: 1.5rem; }
+            .currency-toggle { margin-left: 10px; }
         }
 
         @media screen and (max-width: 425px) {
@@ -344,6 +368,8 @@
             .product-card p { font-size: 0.8rem; margin: 0 5px 5px; }
             .product-card button { padding: 6px 12px; font-size: 0.8rem; margin: 5px; }
             .mobile-menu-toggle { font-size: 1.4rem; }
+            .currency-toggle { margin-left: 8px; }
+            .currency-toggle select { font-size: 0.8rem; padding: 4px; }
         }
 
         @media screen and (max-width: 375px) {
@@ -366,6 +392,8 @@
             .product-card p { font-size: 0.75rem; margin: 0 4px 4px; }
             .product-card button { padding: 5px 10px; font-size: 0.75rem; margin: 4px; }
             .mobile-menu-toggle { font-size: 1.3rem; }
+            .currency-toggle { margin-left: 6px; }
+            .currency-toggle select { font-size: 0.75rem; padding: 3px; }
         }
 
         @media screen and (max-width: 320px) {
@@ -388,6 +416,8 @@
             .product-card p { font-size: 0.7rem; margin: 0 3px 3px; }
             .product-card button { padding: 4px 8px; font-size: 0.7rem; margin: 3px; }
             .mobile-menu-toggle { font-size: 1.2rem; }
+            .currency-toggle { margin-left: 5px; }
+            .currency-toggle select { font-size: 0.7rem; padding: 2px; }
         }
     </style>
 </head>
@@ -402,6 +432,12 @@
                 <li><a href="index.html#products">Frames</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <div class="currency-toggle">
+                <select id="currency-select" onchange="updateCurrency()">
+                    <option value="USD">USD</option>
+                    <option value="BBD">BBD</option>
+                </select>
+            </div>
             <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="font-size: 25px;"></i></a>
             <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
         </div>
@@ -414,15 +450,16 @@
     </div>
     <script type="text/javascript">
     const productsContainer = document.getElementById('products');
+    const exchangeRate = 2; // 1 USD = 2 BBD
 
-    // build all glasses
+    // Build all glasses with prices in USD
     const glasses = Array.from({ length: 221 }, (_, i) => ({
         name: `Glasses ${i + 1}`,
-        price: 100,
+        priceUSD: 50, // Base price in USD
         image: `glasses${i + 1}.jpg`
     }));
 
-    // helper: check if image exists
+    // Helper: check if image exists
     function imageExists(src) {
         return new Promise(resolve => {
             const img = new Image();
@@ -432,11 +469,16 @@
         });
     }
 
-    // render cards only if image loads successfully
-    (async () => {
+    // Render product cards with dynamic currency
+    async function renderProducts(currency = 'USD') {
+        productsContainer.innerHTML = ''; // Clear existing cards
         for (const glass of glasses) {
             const exists = await imageExists(glass.image);
-            if (!exists) continue; // skip missing image
+            if (!exists) continue; // Skip missing image
+
+            const price = currency === 'USD' ? glass.priceUSD : glass.priceUSD * exchangeRate;
+            const currencySymbol = currency === 'USD' ? '$' : 'BBD$';
+            const priceFormatted = `${currencySymbol}${price.toFixed(2)}`;
 
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
@@ -444,11 +486,11 @@
                 <div class="product-card-inner">
                     <div class="product-card-front">
                         <img src="${glass.image}" alt="${glass.name}">
-                        <p>$${glass.price.toFixed(2)}</p>
+                        <p class="price" data-price-usd="${glass.priceUSD}">${priceFormatted}</p>
                     </div>
                     <div class="product-card-back">
-                        <p>$${glass.price.toFixed(2)}</p>
-                        <button onclick="addToCart('${glass.name.toLowerCase().replace(/\s+/g, '-')}', '${glass.name}', ${glass.price}, '${glass.image}')">Add to Cart</button>
+                        <p class="price" data-price-usd="${glass.priceUSD}">${priceFormatted}</p>
+                        <button onclick="addToCart('${glass.name.toLowerCase().replace(/\s+/g, '-')}', '${glass.name}', ${price}, '${glass.image}', '${currency}')">Add to Cart</button>
                     </div>
                 </div>
             `;
@@ -459,33 +501,41 @@
         const productCards = document.querySelectorAll('.product-card');
         productCards.forEach(card => {
             card.addEventListener('click', function(event) {
-                // Prevent flip if clicking the Add to Cart button
                 if (!event.target.closest('button')) {
                     const inner = this.querySelector('.product-card-inner');
                     inner.classList.toggle('flipped');
                 }
             });
         });
-    })();
+    }
 
-    // keep prices in a lookup
+    // Update prices based on selected currency
+    function updateCurrency() {
+        const currencySelect = document.getElementById('currency-select');
+        const selectedCurrency = currencySelect.value;
+        renderProducts(selectedCurrency);
+    }
+
+    // Keep prices in a lookup
     const glassesPrices = {};
     glasses.forEach(glass => {
-        glassesPrices[glass.name.toLowerCase().replace(/\s+/g, '-')] = glass.price;
+        glassesPrices[glass.name.toLowerCase().replace(/\s+/g, '-')] = glass.priceUSD;
     });
 
-    function addToCart(glassesId, name, price, image) {
+    function addToCart(glassesId, name, price, image, currency) {
         if (!glassesId || !glassesPrices[glassesId]) {
             console.error('Invalid glasses ID');
             return;
         }
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push({ id: glassesId, name, price, image });
+        const priceUSD = currency === 'USD' ? price : price / exchangeRate;
+        cart.push({ id: glassesId, name, price: priceUSD, image, currency });
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.href = 'cart.html';
-        // Note: Ensure cart.html redirects to order.html with the cart data, e.g.:
-        // window.location.href = `order.html?order=${encodeURIComponent(JSON.stringify(cart))}`;
     }
+
+    // Initial render
+    renderProducts();
 
     // Hamburger Menu Toggle
     document.addEventListener('DOMContentLoaded', function() {
