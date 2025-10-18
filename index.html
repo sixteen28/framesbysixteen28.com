@@ -162,6 +162,23 @@
             color: var(--dark-color);
             cursor: pointer;
         }
+        /* Banner Section */
+        .banner {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 999;
+            margin-top: 140px; /* Adjusted to account for fixed header */
+        }
+        .banner p {
+            margin: 0;
+        }
         /* Hero Section */
         .hero {
             display: flex;
@@ -169,13 +186,11 @@
             justify-content: space-between;
             gap: 4rem;
             padding: 80px 20px;
-            background-color:  var(--light-grey)
+            background-color: var(--light-gray);
         }
         .hero-content {
             flex: 1 1 50%;
-             
         }
-      
         .hero-image {
             flex: 1 1 50%;
             aspect-ratio: 4/3;
@@ -547,7 +562,7 @@
         }
         /* Footer */
         footer {
-            background-color: var( --primary-color);
+            background-color: var(--primary-color);
             color: white;
             font-weight: bold;
             padding: 60px 0 30px;
@@ -618,6 +633,7 @@
             }
             h1 { font-size: 3.2rem; }
             h2 { font-size: 2.5rem; }
+            .banner { font-size: 1.4rem; padding: 15px 0; }
             .hero {
                 gap: 3rem;
                 padding: 60px 15px;
@@ -651,6 +667,7 @@
             }
             h1 { font-size: 2.8rem; }
             h2 { font-size: 2.2rem; }
+            .banner { font-size: 1.3rem; padding: 12px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -694,6 +711,7 @@
             }
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
+            .banner { font-size: 1.2rem; padding: 10px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -753,6 +771,7 @@
             h1 { font-size: 1.6rem; }
             h2 { font-size: 1.4rem; }
             h2:after { width: 60px; height: 3px; }
+            .banner { font-size: 1rem; padding: 8px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -815,6 +834,7 @@
             h1 { font-size: 1.8rem; }
             h2 { font-size: 1.6rem; }
             h2:after { width: 70px; height: 3px; }
+            .banner { font-size: 1.1rem; padding: 8px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -867,6 +887,7 @@
             h1 { font-size: 2rem; }
             h2 { font-size: 1.8rem; }
             h2:after { width: 80px; height: 4px; }
+            .banner { font-size: 1.15rem; padding: 10px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -926,6 +947,7 @@
             }
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
+            .banner { font-size: 1.2rem; padding: 10px 0; }
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -996,6 +1018,7 @@
             </div>
         </div>
     </header>
+   
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Style Your Vision</h1>
@@ -1003,19 +1026,23 @@
             <a href="#new-arrivals" class="cta-button">Discover New Arrivals</a>
         </div>
         <div class="hero-image">
-             <img src="model00.jpg" class="active">
-            <img src="model0.jpg" >
+            <img src="model00.jpg" class="active">
+            <img src="model0.jpg">
             <img src="model1.jpg">
             <img src="model2.jpg">
             <img src="model3.jpg">
             <img src="model4.jpg">
             <div class="slider-nav">
-                
             </div>
         </div>
     </section>
     <section class="collections" id="collections">
         <div class="container">
+            <section class="banner">
+                <div class="container">
+                    <p>We Fill Prescriptions</p>
+                </div>
+            </section>
             <h2>Shop by Category</h2>
             <div class="collection-grid">
                 <div class="collection-card" data-category="mens">
